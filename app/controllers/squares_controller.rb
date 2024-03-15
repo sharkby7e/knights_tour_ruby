@@ -1,5 +1,4 @@
 class SquaresController < ApplicationController
-
   def index
     @located_square = Square.find_by(location_params)
     @squares = []

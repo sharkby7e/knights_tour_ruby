@@ -4,6 +4,6 @@ y_coords = (1..8).to_a
 
 x_coords.each do |x|
   y_coords.each do |y|
-    p "#{x}, #{y.to_s}"
+    p "#{x}, #{y}"
   end
 end
