@@ -9,5 +9,7 @@ Rails.application.routes.draw do
   root "home#show"
   get "/other" => "home#index"
 
+  resources :squares, only: [:show]
+
   # root "posts#index"
 end
