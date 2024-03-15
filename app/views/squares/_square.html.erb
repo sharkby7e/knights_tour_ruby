@@ -1,2 +1,7 @@
-<% square.x %>
-<% square.y %> 
+<% bg_class = index.odd? ? 'bg-slate-50' : 'bg-slate-500' %>
+<%= link_to squares_path(location: { x: square.x, y: square.y }) do %>
+  <div class="p-2 border-2 <%= bg_class %>">
+    <%= square.x %>
+    <%= square.y %>
+  </div>
+<% end %>

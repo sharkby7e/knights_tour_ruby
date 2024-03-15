@@ -1,8 +1,8 @@
-<body>
-<h1>
-  here is a title
-</h1>
-<% @squares.each do |square| %>
-  <%= render "square", square: square %>
-<% end %>
-</body>
+<div class="flex flex-col items-center space-y-10">
+  <h1 class="text-4xl font-bold">A Knight's Tour</h1>
+  <div class="grid grid-rows-8 grid-cols-8">
+    <% @squares.each_with_index do |square, idx| %>
+        <%= render "square", square: square, index: idx %>
+    <% end %>
+  </div>
+</div>
