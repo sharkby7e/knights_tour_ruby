@@ -1,7 +1,14 @@
 <% bg_class = index.odd? ? 'bg-slate-50' : 'bg-slate-500' %>
 <%= link_to squares_path(location: { x: square.x, y: square.y }) do %>
-  <div class="p-2 border-2 <%= bg_class %>">
-    <%= square.x %>
-    <%= square.y %>
+  <div class="w-24 h-24 flex items-center justify-center text-5xl p-2 border-2 <%= bg_class %>">
+    <!-- K -->
+    <% if square.has_knight? %>
+       ♞
+    <% else %>
+      <%= square.x %>
+      <%= square.y %>
+    <% end %>
+
+
   </div>
 <% end %>
