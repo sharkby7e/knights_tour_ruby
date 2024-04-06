@@ -1,14 +1,17 @@
-<% bg_class = index.odd? ? 'bg-slate-50' : 'bg-slate-500' %>
+<% odds = (0...8).to_a + (16...24).to_a + (32...40).to_a + (48...56).to_a %>
+<% if odds.include?(index) %>
+  <% bg_class = index.even? ? "bg-slate-100" : "bg-slate-500" %>
+<% else %>
+  <% bg_class = index.odd? ? "bg-slate-100" : "bg-slate-500" %>
+<% end %>
+
 <%= link_to squares_path(location: { x: square.x, y: square.y }) do %>
   <div class="w-24 h-24 flex items-center justify-center text-5xl p-2 border-2 <%= bg_class %>">
-    <!-- K -->
     <% if square.has_knight? %>
-       ♞
+      ♞
     <% else %>
       <%= square.x %>
       <%= square.y %>
     <% end %>
-
-
   </div>
 <% end %>
