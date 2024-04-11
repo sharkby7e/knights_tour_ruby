@@ -8,7 +8,12 @@ class SquaresController < ApplicationController
 
     @located_square = Square.find_by(x: params[:location][:x], y: params[:location][:y])
     @located_square.update!(has_knight: true)
-    @legal_moves = MoveFinder.new(square: @located_square).legal_moves
+
+    legal_moves = MoveFinder.new(square: @located_square).legal_moves
+
+    @legal_squares = legal_moves.map do |move|
+      Square.find_by(x: move[0], y: move[1])
+    end
   end
 
   def show
