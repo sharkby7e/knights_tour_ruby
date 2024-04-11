@@ -6,9 +6,9 @@ class SquaresController < ApplicationController
 
     return if params[:location].blank?
 
-    binding.break
     @located_square = Square.find_by(x: params[:location][:x], y: params[:location][:y])
     @located_square.update!(has_knight: true)
+    @legal_moves = MoveFinder.new(square: @located_square).legal_moves
   end
 
   def show

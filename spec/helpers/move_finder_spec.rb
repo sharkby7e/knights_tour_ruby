@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe MoveFinder, type: :helper do
-  let(:square) { create(:square) }
+  let(:square) { create(:square, x: 1, y: 1) }
   let(:finder) { MoveFinder.new(square:) }
 
   it 'initializes with a square with accessible coordinates' do
