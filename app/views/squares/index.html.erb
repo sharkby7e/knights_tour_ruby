@@ -8,8 +8,11 @@
     </div>
     <div class='flex flex-col space-y-8 text-3xl text-zinc-300 text-center'>
       <p>Visited Squares</p>
-      <p><%= @visited_squares %></p>
-      <%= link_to "Restart", squares_path %>
+      <p><%= @visited_squares || "0" %></p>
+      <div class="<%='invisible' if @new_game %>">
+        <% text = @visited_squares == 64 ? "Congrats!" : "Restart" %>
+        <%= link_to text, squares_path %>
+      </div>
     </div>
   </div>
 </div>

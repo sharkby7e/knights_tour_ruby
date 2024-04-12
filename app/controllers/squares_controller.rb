@@ -3,8 +3,10 @@ class SquaresController < ApplicationController
     @squares = Square.all
     @squares.update_all(has_knight: false)
 
+    @new_game = true
     return reset_game if params[:location].blank?
 
+    @new_game = false
     @located_square = Square.find_by(x: params[:location][:x], y: params[:location][:y])
     @located_square.update!(has_knight: true)
     @located_square.update!(has_been_visited: true)
