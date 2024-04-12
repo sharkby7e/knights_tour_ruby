@@ -1,10 +1,9 @@
 class SquaresController < ApplicationController
   def index
     @squares = Square.all
-
     @squares.update_all(has_knight: false)
 
-    return if params[:location].blank?
+    return reset_game if params[:location].blank?
 
     @located_square = Square.find_by(x: params[:location][:x], y: params[:location][:y])
     @located_square.update!(has_knight: true)
@@ -17,6 +16,7 @@ class SquaresController < ApplicationController
     end
 
     @legal_squares.reject!(&:has_been_visited)
+    @visited_squares = @squares.where(has_been_visited: true).count
 
     return unless @legal_squares.blank?
 

@@ -1,8 +1,15 @@
 <div class="bg-zinc-600 p-8 flex flex-col items-center space-y-10">
   <h1 class="text-4xl text-zinc-300 font-semibold">A Knight's Tour</h1>
-  <div class="grid grid-rows-8 grid-cols-8">
-    <% @squares.each_with_index do |square, idx| %>
-      <%= render "square", square: square, index: idx, legal_square: @legal_squares.blank? || @legal_squares.include?(square) %>
-    <% end %>
+  <div class="flex gap-x-10 items-center">
+    <div class="grid grid-rows-8 grid-cols-8">
+      <% @squares.each_with_index do |square, idx| %>
+        <%= render "square", square: square, index: idx, legal_square: @legal_squares.blank? || @legal_squares.include?(square) %>
+      <% end %>
+    </div>
+    <div class='flex flex-col space-y-8 text-3xl text-zinc-300 text-center'>
+      <p>Visited Squares</p>
+      <p><%= @visited_squares %></p>
+      <%= link_to "Restart", squares_path %>
+    </div>
   </div>
 </div>
