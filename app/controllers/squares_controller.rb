@@ -16,15 +16,22 @@ class SquaresController < ApplicationController
       Square.find_by(x: move[0], y: move[1])
     end
 
-    @legal_squares = @legal_squares.reject(&:has_been_visited)
+    @legal_squares.reject!(&:has_been_visited)
+
+    return unless @legal_squares.blank?
+
+    reset_game
   end
 
   def show
     @square = Square.find(params[:id])
   end
-  #
-  # private
-  #
+
+  private
+
+  def reset_game
+    Square.update_all(has_been_visited: false)
+  end
   # def location_params
   #   params.permit(:location).permit([:x, :y])
   # end

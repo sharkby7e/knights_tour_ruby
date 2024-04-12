@@ -2,7 +2,7 @@
   <h1 class="text-4xl text-zinc-300 font-semibold">A Knight's Tour</h1>
   <div class="grid grid-rows-8 grid-cols-8">
     <% @squares.each_with_index do |square, idx| %>
-      <%= render "square", square: square, index: idx, legal_square: @legal_squares.include?(square) %>
+      <%= render "square", square: square, index: idx, legal_square: @legal_squares.blank? || @legal_squares.include?(square) %>
     <% end %>
   </div>
 </div>
