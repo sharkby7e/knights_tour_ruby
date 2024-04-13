@@ -22,7 +22,7 @@ class SquaresController < ApplicationController
 
     return unless @legal_squares.blank?
 
-    reset_game
+    @fail_state = true
   end
 
   def show
