@@ -8,5 +8,3 @@ y.each do |y|
     Square.create!(x: x.to_s, y: y.to_s)
   end
 end
-
-
