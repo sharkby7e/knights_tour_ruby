@@ -7,3 +7,11 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+x = (1..8).to_a
+y = (1..8).to_a.reverse
+
+y.each do |y|
+  x.each do |x|
+    Square.create!(x: x.to_s, y: y.to_s)
+  end
+end
