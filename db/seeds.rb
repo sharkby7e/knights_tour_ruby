@@ -12,6 +12,6 @@ y = (1..8).to_a.reverse
 
 y.each do |y|
   x.each do |x|
-    Square.create!(x: x.to_s, y: y.to_s)
+    Square.create!(x:, y:)
   end
 end
